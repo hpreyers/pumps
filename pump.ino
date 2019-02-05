@@ -100,10 +100,10 @@ void handleRoot() {                         // When URI / is requested, send a w
 	// set the built-in led to ON
 	digitalWrite (led, 1);
 	// create the webpage
-	//char htmlMessageFINAL
-	//htmlMessageFINAL = createhtmlMessageNEW();
+	char * htmlMessageFINAL
+	htmlMessageFINAL = createhtmlMessageNEW();
 	// show the NEW html page
-	server.send(200, "text/html", htmlMessageNEW);
+	server.send(200, "text/html", htmlMessageFINAL);
 }
 
 void handleDOORVERWIJZEN() { // If a POST request is made to URI /LED
