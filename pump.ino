@@ -72,7 +72,7 @@ const char * htmlMessage2 = " <!DOCTYPE html> "
 "</body> "
 "</html> ";
 
-const char * htmlMessagePRE = "<!DOCTYPE HTML>\r\n<html><head><title>Tempcontrol by HACO2401</title> <style>body { background-color: #cccccc; font-family: Arial, Helvetica, Sans-Serif; Color: #000088; }";
+const char * htmlMessagePRE = "<!DOCTYPE HTML>\r\n<html><head><title>Tempcontrol by HACO2401</title> <style>body { background-color: #cccccc; font-family: Arial, Helvetica, Sans-Serif; Color: #000088; }"
 "body { background-color: #cccccc; font-family: Arial, Helvetica, Sans-Serif; Color: #000088; } .gridContainer {width: 75.5%;padding: 3.82%; }</style></head><body><br><br>";
 
 const char * htmlMessageTITLE = "<H1>Tempcontrol by HACO2401</H1>";
@@ -81,7 +81,7 @@ const char * htmlMessageFORM = "<form action=\"/DOORVERWIJZEN\" method=\"POST\">
 
 const char * htmlMessagePOST = "</body></html>\r\n\r\n";
 
-void createhtmlMessageNEW() {
+char * createhtmlMessageNEW() {
 createhtmlBody();
 htmlMessageNEW = htmlMessagePRE;
 htmlMessageNEW += htmlMessageTITLE;
@@ -90,7 +90,7 @@ htmlMessageNEW += htmlMessagePOST;
 return htmlMessageNEW;
 }
 
-void createhtmlBody() {
+char * createhtmlBody() {
 htmlMessageBODY = htmlMessageFORM;
 return htmlMessageBODY;
 }
@@ -100,7 +100,8 @@ void handleRoot() {                         // When URI / is requested, send a w
 	// set the built-in led to ON
 	digitalWrite (led, 1);
 	// create the webpage
-	createhtmlMessageNEW();
+	//char htmlMessageFINAL
+	//htmlMessageFINAL = createhtmlMessageNEW();
 	// show the NEW html page
 	server.send(200, "text/html", htmlMessageNEW);
 }
